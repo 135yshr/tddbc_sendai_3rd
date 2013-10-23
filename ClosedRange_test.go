@@ -33,9 +33,21 @@ func Test正常_閉区間を作成し下端点が取得できることを確認�
 }
 
 func Test正常_閉区間3to8を作成し上端点が取得できることを確認する(t *testing.T) {
-	expected := 8
-	target := NewClosedRange(3, 8)
-	if target.upper != expected {
-		t.Errorf("failed get lower expected=%d, actual=%d\n", expected, target.upper)
+	var data = []struct {
+		lower    int
+		upper    int
+		expected int
+	}{
+		{3, 7, 7},
+		{3, 8, 8},
+		{3, 9, 9},
+		{3, 10, 10},
+	}
+	for _, d := range data {
+		expected := d.expected
+		target := NewClosedRange(d.lower, d.upper)
+		if target.upper != expected {
+			t.Errorf("failed get lower expected=%d, actual=%d\n", expected, target.upper)
+		}
 	}
 }
