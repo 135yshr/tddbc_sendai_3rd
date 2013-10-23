@@ -101,3 +101,20 @@ func Test正常_閉区間が別の閉区間と等しいか確認する(t *testin
 		}
 	}
 }
+
+func Test正常_閉区間が別の閉区間と接続しているか確認する(t *testing.T) {
+	var data = []struct {
+		item     ClosedRange
+		param    ClosedRange
+		expected bool
+	}{
+		{ClosedRange{3, 7}, ClosedRange{1, 5}, true},
+	}
+	for _, d := range data {
+		expected := d.expected
+		actual := d.item.IsConnectedTo(d.param)
+		if expected != actual {
+			t.Errorf("failed contains test expected=%t, actual=%t\n", expected, actual)
+		}
+	}
+}
