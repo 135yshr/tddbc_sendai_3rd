@@ -58,3 +58,23 @@ func Test異常_上端点が下端点よりも小さいときはインスタン�
 		t.Error("An error did not occur.")
 	}
 }
+
+func Test正常_閉区間が指定した整数を含むかどうかを確認する(t *testing.T) {
+	var data = []struct {
+		lower    int
+		upper    int
+		param    int
+		expected bool
+	}{
+		{3, 5, 4, true},
+	}
+
+	for _, d := range data {
+		expected := d.expected
+		target := NewClosedRange(d.lower, d.upper)
+		actual := target.Contains(d.param) == expected
+		if actual == false {
+			t.Errorf("failed contains test expected=%t, actual=%t\n", expected, actual)
+		}
+	}
+}
