@@ -21,5 +21,5 @@ func (r *ClosedRange) Equal(target ClosedRange) bool {
 }
 
 func (r *ClosedRange) IsConnectedTo(target ClosedRange) bool {
-	return target.lower < r.upper
+	return target.lower < r.upper && r.lower < target.upper
 }
