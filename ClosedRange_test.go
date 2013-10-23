@@ -82,3 +82,20 @@ func Test正常_閉区間が指定した整数を含むかどうかを確認す�
 		}
 	}
 }
+
+func Test正常_閉区間が別の閉区間と等しいか確認する(t *testing.T) {
+	var data = []struct {
+		item     ClosedRange
+		param    ClosedRange
+		expected bool
+	}{
+		{ClosedRange{1, 3}, ClosedRange{1, 3}, true},
+	}
+	for _, d := range data {
+		expected := d.expected
+		actual := d.item.Equal(d.param) == expected
+		if actual == false {
+			t.Errorf("failed contains test expected=%t, actual=%t\n", expected, actual)
+		}
+	}
+}
