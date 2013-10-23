@@ -11,11 +11,24 @@ func Test正常_インスタンスが作成できる(t *testing.T) {
 	}
 }
 
-func Test正常_閉区間3to8を作成し下端点が取得できることを確認する(t *testing.T) {
-	expected := 3
-	target := NewClosedRange(3, 8)
-	if target.lower != expected {
-		t.Errorf("failed get lower expected=%d, actual=%d\n", expected, target.lower)
+func Test正常_閉区間を作成し下端点が取得できることを確認する(t *testing.T) {
+	var data = []struct {
+		lower    int
+		upper    int
+		expected int
+	}{
+		{1, 8, 1},
+		{2, 8, 2},
+		{3, 8, 3},
+		{4, 8, 4},
+	}
+
+	for _, d := range data {
+		expected := d.expected
+		target := NewClosedRange(d.lower, d.upper)
+		if target.lower != expected {
+			t.Errorf("failed get lower expected=%d, actual=%d\n", expected, target.lower)
+		}
 	}
 }
 
