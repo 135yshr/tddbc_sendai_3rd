@@ -13,5 +13,5 @@ func NewClosedRange(lower, upper int) *ClosedRange {
 }
 
 func (r *ClosedRange) Contains(target int) bool {
-	return r.lower < target && target < r.upper
+	return r.lower <= target && target < r.upper
 }
