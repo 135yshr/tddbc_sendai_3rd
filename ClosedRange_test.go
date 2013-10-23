@@ -76,8 +76,8 @@ func Test正常_閉区間が指定した整数を含むかどうかを確認す�
 	for _, d := range data {
 		expected := d.expected
 		target := NewClosedRange(d.lower, d.upper)
-		actual := target.Contains(d.param) == expected
-		if actual == false {
+		actual := target.Contains(d.param)
+		if expected != actual {
 			t.Errorf("failed contains test expected=%t, actual=%t\n", expected, actual)
 		}
 	}
@@ -90,11 +90,12 @@ func Test正常_閉区間が別の閉区間と等しいか確認する(t *testin
 		expected bool
 	}{
 		{ClosedRange{1, 3}, ClosedRange{1, 3}, true},
+		{ClosedRange{1, 3}, ClosedRange{2, 3}, false},
 	}
 	for _, d := range data {
 		expected := d.expected
-		actual := d.item.Equal(d.param) == expected
-		if actual == false {
+		actual := d.item.Equal(d.param)
+		if expected != actual {
 			t.Errorf("failed contains test expected=%t, actual=%t\n", expected, actual)
 		}
 	}
