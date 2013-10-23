@@ -89,9 +89,10 @@ func Test正常_閉区間が別の閉区間と等しいか確認する(t *testin
 		param    ClosedRange
 		expected bool
 	}{
-		{ClosedRange{1, 3}, ClosedRange{1, 3}, true},
-		{ClosedRange{1, 3}, ClosedRange{2, 3}, false},
-		{ClosedRange{1, 3}, ClosedRange{1, 4}, false},
+		{ClosedRange{3, 8}, ClosedRange{3, 8}, true},
+		{ClosedRange{3, 8}, ClosedRange{4, 8}, false},
+		{ClosedRange{3, 8}, ClosedRange{3, 9}, false},
+		{ClosedRange{3, 8}, ClosedRange{2, 9}, false},
 	}
 	for _, d := range data {
 		expected := d.expected
