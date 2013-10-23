@@ -108,14 +108,16 @@ func Test正常_閉区間が別の閉区間と接続しているか確認する(
 		param    ClosedRange
 		expected bool
 	}{
-		{ClosedRange{3, 7}, ClosedRange{1, 5}, true},
-		{ClosedRange{3, 7}, ClosedRange{8, 12}, false},
+		{ClosedRange{3, 8}, ClosedRange{1, 5}, true},
+		{ClosedRange{3, 8}, ClosedRange{9, 12}, false},
+		{ClosedRange{3, 8}, ClosedRange{1, 2}, false},
 	}
 	for _, d := range data {
 		expected := d.expected
 		actual := d.item.IsConnectedTo(d.param)
 		if expected != actual {
-			t.Errorf("failed contains test expected=%t, actual=%t\n", expected, actual)
+			t.Errorf("failed contains test expected=%t, actual=%t item=%v, param=%v\n",
+				expected, actual, d.item, d.param)
 		}
 	}
 }
