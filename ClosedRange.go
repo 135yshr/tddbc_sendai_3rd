@@ -6,5 +6,8 @@ type ClosedRange struct {
 }
 
 func NewClosedRange(lower, upper int) *ClosedRange {
+	if upper < lower {
+		return nil
+	}
 	return &ClosedRange{lower, upper}
 }
