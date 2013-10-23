@@ -18,3 +18,11 @@ func Test正常_閉区間3to8を作成し下端点が取得できることを確
 		t.Errorf("failed get lower expected=%d, actual=%d\n", expected, target.lower)
 	}
 }
+
+func Test正常_閉区間3to8を作成し上端点が取得できることを確認する(t *testing.T) {
+	expected := 8
+	target := NewClosedRange(3, 8)
+	if target.upper != expected {
+		t.Errorf("failed get lower expected=%d, actual=%d\n", expected, target.upper)
+	}
+}
