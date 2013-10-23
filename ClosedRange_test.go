@@ -115,6 +115,7 @@ func Test正常_閉区間が別の閉区間と接続しているか確認する(
 		{ClosedRange{3, 8}, ClosedRange{3, 8}, true},
 		{ClosedRange{3, 8}, ClosedRange{6, 10}, true},
 		{ClosedRange{3, 8}, ClosedRange{3, 10}, true},
+		{ClosedRange{3, 8}, ClosedRange{1, 8}, true},
 	}
 	for _, d := range data {
 		expected := d.expected
