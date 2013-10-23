@@ -19,3 +19,7 @@ func (r *ClosedRange) Contains(target int) bool {
 func (r *ClosedRange) Equal(target ClosedRange) bool {
 	return r.lower == target.lower && r.upper == target.upper
 }
+
+func (r *ClosedRange) IsConnectedTo(target ClosedRange) bool {
+	return true
+}
