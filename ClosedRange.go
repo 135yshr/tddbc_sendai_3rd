@@ -17,5 +17,5 @@ func (r *ClosedRange) Contains(target int) bool {
 }
 
 func (r *ClosedRange) Equal(target ClosedRange) bool {
-	return true
+	return r.lower == target.lower && r.upper == target.upper
 }
