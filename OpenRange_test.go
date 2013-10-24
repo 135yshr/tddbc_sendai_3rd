@@ -43,3 +43,22 @@ func Test正常_開区間を作成し上端点が取得できることを確認�
 		}
 	}
 }
+
+func Test正常_開区間の文字列表記が取得できることを確認する(t *testing.T) {
+	var data = []struct {
+		lower    int
+		upper    int
+		expected string
+	}{
+		{3, 8, "[3, 8]"},
+		{3, 9, "[3, 9]"},
+	}
+
+	for _, d := range data {
+		expected := d.expected
+		target := NewOpenRange(d.lower, d.upper)
+		if target.String() != expected {
+			t.Errorf("failed get lower expected=%d, actual=%d\n", expected, target.lower)
+		}
+	}
+}
