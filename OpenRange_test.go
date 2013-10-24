@@ -59,7 +59,7 @@ func Test正常_開区間の文字列表記が取得できることを確認す�
 		target := NewOpenRange(d.lower, d.upper)
 		actual := target.String()
 		if actual != expected {
-			t.Errorf("failed get lower expected=%d, actual=%d\n", expected, actual)
+			t.Errorf("failed get lower expected=%s, actual=%s\n", expected, actual)
 		}
 	}
 }
