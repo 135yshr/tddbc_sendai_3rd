@@ -51,14 +51,15 @@ func Test正常_開区間の文字列表記が取得できることを確認す�
 		expected string
 	}{
 		{3, 8, "[3, 8]"},
-		{3, 9, "[3, 9]"},
+		// {3, 9, "[3, 9]"},
 	}
 
 	for _, d := range data {
 		expected := d.expected
 		target := NewOpenRange(d.lower, d.upper)
-		if target.String() != expected {
-			t.Errorf("failed get lower expected=%d, actual=%d\n", expected, target.lower)
+		actual := target.String()
+		if actual != expected {
+			t.Errorf("failed get lower expected=%d, actual=%d\n", expected, actual)
 		}
 	}
 }
