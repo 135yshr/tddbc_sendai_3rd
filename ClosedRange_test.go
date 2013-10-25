@@ -127,3 +127,22 @@ func Test正常_閉区間が別の閉区間と接続しているか確認する(
 		}
 	}
 }
+
+func Test正常_閉区間の文字列表記が取得できることを確認する(t *testing.T) {
+	var data = []struct {
+		lower    int
+		upper    int
+		expected string
+	}{
+		{3, 8, "[3, 8]"},
+	}
+
+	for _, d := range data {
+		expected := d.expected
+		target := NewClosedRange(d.lower, d.upper)
+		actual := target.String()
+		if actual != expected {
+			t.Errorf("failed get lower expected=%s, actual=%s\n", expected, actual)
+		}
+	}
+}
