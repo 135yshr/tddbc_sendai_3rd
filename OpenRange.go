@@ -16,3 +16,7 @@ func NewOpenRange(lower, upper int) *OpenRange {
 func (r *OpenRange) String() string {
 	return fmt.Sprintf("[%d,%d]", r.lower, r.upper)
 }
+
+func (r *OpenRange) Contains(target int) bool {
+	return true
+}
