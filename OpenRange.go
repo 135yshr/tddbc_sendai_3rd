@@ -14,5 +14,5 @@ func NewOpenRange(lower, upper int) *OpenRange {
 }
 
 func (r *OpenRange) String() string {
-	return fmt.Sprintf("[%d, %d]", r.lower, r.upper)
+	return fmt.Sprintf("[%d,%d]", r.lower, r.upper)
 }
