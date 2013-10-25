@@ -63,3 +63,24 @@ func Test正常_開区間の文字列表記が取得できることを確認す�
 		}
 	}
 }
+
+func Test正常_開区間に指定した整数を含むか確認する(t *testing.T) {
+	var data = []struct {
+		lower    int
+		upper    int
+		value    int
+		expected bool
+	}{
+		{3, 8, 4, true},
+	}
+
+	for _, d := range data {
+		expected := d.expected
+		value := d.value
+		target := NewOpenRange(d.lower, d.upper)
+		actual := target.Contains(value)
+		if actual != expected {
+			t.Errorf("failed %s value=%d expected=%t actual=%t\n", target, value, expected, actual)
+		}
+	}
+}
