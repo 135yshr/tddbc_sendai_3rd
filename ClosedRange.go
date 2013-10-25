@@ -1,6 +1,8 @@
 package tddbc
 
-import ()
+import (
+	"fmt"
+)
 
 type ClosedRange struct {
 	lower int
@@ -27,5 +29,5 @@ func (r *ClosedRange) IsConnectedTo(target ClosedRange) bool {
 }
 
 func (r *ClosedRange) String() string {
-	return "[3,8]"
+	return fmt.Sprintf("[%d,%d]", r.lower, r.upper)
 }
