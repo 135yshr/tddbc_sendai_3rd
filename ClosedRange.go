@@ -1,5 +1,7 @@
 package tddbc
 
+import ()
+
 type ClosedRange struct {
 	lower int
 	upper int
@@ -22,4 +24,8 @@ func (r *ClosedRange) Equal(target ClosedRange) bool {
 
 func (r *ClosedRange) IsConnectedTo(target ClosedRange) bool {
 	return target.lower < r.upper && r.lower < target.upper
+}
+
+func (r *ClosedRange) String() string {
+	return "[3,8]"
 }
