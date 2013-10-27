@@ -72,6 +72,8 @@ func Test正常_開区間に指定した整数を含むか確認する(t *testin
 		expected bool
 	}{
 		{3, 8, 4, true},
+		{3, 8, 7, true},
+		{3, 8, 2, false},
 	}
 
 	for _, d := range data {
