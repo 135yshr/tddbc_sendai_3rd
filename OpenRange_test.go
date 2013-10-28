@@ -89,3 +89,22 @@ func Test正常_開区間に指定した整数を含むか確認する(t *testin
 		}
 	}
 }
+
+func Test正常_開区間が別の開区間と等しいか確認する(t *testing.T) {
+	var data = []struct {
+		target   OpenRange
+		value    OpenRange
+		expected bool
+	}{
+		{OpenRange{3, 8}, OpenRange{3, 8}, true},
+	}
+	for _, d := range data {
+		expected := d.expected
+		value := d.value
+		target := d.target
+		actual := target.Equal(value)
+		if actual != expected {
+			t.Errorf("failed %s value=%s expected=%t actual=%t\n", target, value, expected, actual)
+		}
+	}
+}
