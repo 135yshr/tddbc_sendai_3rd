@@ -97,6 +97,7 @@ func Test正常_開区間が別の開区間と等しいか確認する(t *testin
 		expected bool
 	}{
 		{OpenRange{3, 8}, OpenRange{3, 8}, true},
+		{OpenRange{3, 8}, OpenRange{4, 8}, false},
 	}
 	for _, d := range data {
 		expected := d.expected
