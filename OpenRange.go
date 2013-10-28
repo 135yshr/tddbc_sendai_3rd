@@ -22,5 +22,5 @@ func (r *OpenRange) Contains(target int) bool {
 }
 
 func (r *OpenRange) Equal(target OpenRange) bool {
-	return true
+	return r.lower == target.lower && r.upper == target.upper
 }

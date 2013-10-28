@@ -105,7 +105,7 @@ func Test正常_開区間が別の開区間と等しいか確認する(t *testin
 		target := d.target
 		actual := target.Equal(value)
 		if actual != expected {
-			t.Errorf("failed %s value=%s expected=%t actual=%t\n", target, value, expected, actual)
+			t.Errorf("failed %v value=%v expected=%t actual=%t\n", target, value, expected, actual)
 		}
 	}
 }
