@@ -26,5 +26,5 @@ func (r *OpenRange) Equal(target OpenRange) bool {
 }
 
 func (r *OpenRange) IsConnectedTo(target OpenRange) bool {
-	return true
+	return r.lower < target.upper && target.lower < r.upper
 }
