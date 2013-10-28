@@ -24,3 +24,7 @@ func (r *OpenRange) Contains(target int) bool {
 func (r *OpenRange) Equal(target OpenRange) bool {
 	return r.lower == target.lower && r.upper == target.upper
 }
+
+func (r *OpenRange) IsConnectedTo(target OpenRange) bool {
+	return true
+}
