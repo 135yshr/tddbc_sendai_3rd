@@ -126,6 +126,7 @@ func Test正常_開区間が別の開区間と接続しているか確認する(
 		{OpenRange{3, 8}, OpenRange{2, 8}, true},
 		{OpenRange{3, 8}, OpenRange{3, 9}, true},
 		{OpenRange{3, 8}, OpenRange{4, 6}, true},
+		{OpenRange{3, 8}, OpenRange{2, 9}, true},
 	}
 	for _, d := range data {
 		expected := d.expected
